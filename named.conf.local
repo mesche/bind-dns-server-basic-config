@@ -1,0 +1,23 @@
+//
+// This file contains the own local DNS server configuration.
+// This is where you declare the zones associated with this server's domain(s). 
+// Consider adding the 1918 zones here, if they are not used in your organization 
+// include "/etc/bind/zones.rfc1918";
+//
+
+// ----------------------- Zones -----------------------
+
+// Forward-Lookup
+zone "berry.home" {
+    type master;
+    file "/etc/bind/zones/berry.home.zone";
+    allow-transfer { acl_trusted_transfer; };    //see named.conf.options for configuration
+};
+
+// Reverse-Lookup
+zone "2.168.192.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.2.168.192.inv";
+};
+
+// ----------------------- Zones -----------------------

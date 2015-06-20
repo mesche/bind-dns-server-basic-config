@@ -1,0 +1,17 @@
+;;
+;; BIND reverse data file for zone db.2.168.192.inv
+;;
+
+$TTL           86400         ; time-to-live - 24 hours could have been written as 24h or 1d
+
+@              IN            SOA      ns1.berry.home. mail.berry.home. (
+                                           2015061101          ; Serial  - (NOTE: Needs to increment every time you restart BIND)
+                                               604800          ; Refresh
+                                                86400          ; Retry
+                                              2419200          ; Expire
+                                               604800 )        ; Default TTL
+
+               IN            NS       ns1.berry.home.          ; nameserver 
+
+2              IN            PTR      ns1.berry.home.          ; #1 192.168.2.2
+10             IN            PTR      server.berry.home.       ; #2 192.168.2.10
